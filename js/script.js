@@ -97,3 +97,80 @@ function maxMultiple(d, b) {
 }
 
 maxMultiple(3, 13);
+
+/* 10-masala
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+*/
+
+function makeNegative(num) {
+	let result = num > 0 ? -num : num;
+	console.log(result);
+}
+
+makeNegative(7);
+
+/* 11-masala
+Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+*/
+
+let countSheep = function (num) {
+	let str = "";
+	for (let i = 1; i <= num; i++) {
+		str += `${i} sheep...`;
+	}
+	console.log(str);
+};
+
+countSheep(5);
+
+/* 12-masala
+Given an array of integers.
+
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+If the input is an empty array or is null, return an empty array.
+*/
+
+function sumNegatives(input) {
+	let result =
+		!input || !input.length
+			? []
+			: [
+					input.filter((n) => n > 0).length,
+					input.filter((n) => n < 0).reduce((a, b) => a + b),
+			  ];
+	console.log(result);
+}
+
+sumNegatives([2, 5, 3, 6, -7]);
+
+/* 13-masala
+Write a program to determine if the two given numbers are coprime. A pair of numbers are coprime if their greatest shared factor is 1.
+
+The inputs will always be two positive integers between 2 and 99.
+*/
+
+function isCoprime(x, y) {
+	const min = Math.min(x, y);
+
+	for (let i = 2; i <= min; i++) {
+		if (x % i === 0 && y % i === 0) {
+			console.log(false);
+		}
+	}
+
+	console.log(true);
+}
+
+isCoprime(3, 7);
+
+/* 14-masala
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+*/
+
+function isIsogram(str) {
+	let result = new Set(str.toUpperCase()).size == str.length;
+	console.log(result);
+}
+
+isIsogram("salom");
